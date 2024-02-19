@@ -1,0 +1,81 @@
+<template>
+  <DxDraggable id="list"
+               :group="'testing'"
+               :on-drag-start="onListDragStart"
+               data="dropArea">
+    <DxDraggable v-for="(item, index) in content.data"
+                 :key="index"
+                 :clone="true"
+                 :group="'testing'"
+                 :data="item"
+                 :on-drag-start="onItemDragStart"
+                 :on-drag-end="onItemDragEnd"
+                 class="item dx-card dx-theme-text-color dx-theme-background-color">
+      <wwLayoutItemContext :index="index"
+                           :item="null"
+                           is-repeat
+                           :data="item"
+                           :repeated-items="content.data">
+        <wwElement v-bind="content.itemContainer"></wwElement>
+      </wwLayoutItemContext>
+    </DxDraggable>
+  </DxDraggable>
+</template>
+
+<script>
+import './dx.fluent.dx-light-theme.css';
+
+import DxDraggable from 'devextreme-vue/draggable';
+
+export default {
+  components: {
+    DxDraggable
+  },
+  props: {
+    content: {type: Object, required: true}
+  },
+  emits: ['trigger-event'],
+  computed: {},
+  methods: {
+    onListDragStart(event) {
+      console.log('onListDragStart', event);
+      event.cancel = true;
+    },
+    onItemDragStart(event) {
+      console.log('onItemDragStart', event);
+      event.itemData = event.fromData;
+    },
+    onItemDragEnd(event) {
+      console.log('onItemDragEnd', event);
+      if (event.toData) {
+        event.cancel = true;
+      }
+    },
+  },
+};
+</script>
+
+<style lang="css" scoped>
+#scroll,
+#list {
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+}
+
+.item {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.dx-draggable-source {
+  opacity: 0.5;
+}
+
+.dx-draggable-dragging > * {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+</style>
