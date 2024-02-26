@@ -1,12 +1,12 @@
 <template>
   <DxDraggable id="list"
-               :group="'testing'"
+               :group="content.draggingGroupName"
                :on-drag-start="onListDragStart"
                data="dropArea">
     <DxDraggable v-for="(item, index) in content.data"
                  :key="index"
                  :clone="true"
-                 :group="'testing'"
+                 :group="content.draggingGroupName"
                  :data="item"
                  :on-drag-start="onItemDragStart"
                  :on-drag-end="onItemDragEnd"

@@ -44,6 +44,14 @@ export default {
                 isWwObject: true,
                 type: "ww-flexbox"
             }
-        }
+        },
+        draggingGroupName: {
+            label: {
+                en: "Dragging Group Name",
+            },
+            type: "Text",
+            defaultValue: "",
+            section: "settings",
+        },
     },
 };
