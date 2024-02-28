@@ -1,16 +1,15 @@
 <template>
   <DxDraggable id="list"
-               :group="'xxx'"
+               :group="content.draggingGroupName"
                :on-drag-start="onListDragStart"
                data="dropArea">
     <DxDraggable v-for="(item, index) in content.data"
                  :key="index"
                  :clone="true"
-                 :group="'xxx'"
+                 :group="content.draggingGroupName"
                  :data="item"
                  :on-drag-start="onItemDragStart"
-                 :on-drag-end="onItemDragEnd"
-                 class="item dx-card dx-theme-text-color dx-theme-background-color">
+                 :on-drag-end="onItemDragEnd">
       <wwLayoutItemContext :index="index"
                            :item="null"
                            is-repeat
