@@ -54,21 +54,23 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-//#scroll,
-//#list {
-//  position: relative;
-//  left: 0;
-//  top: 0;
-//  bottom: 0;
-//  width: 240px;
-//}
-//
-//.item {
-//  box-sizing: border-box;
-//  padding: 10px 20px;
-//  margin-bottom: 10px;
-//}
+<style lang="scss" scoped>
+/*
+#scroll,
+#list {
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+}
+
+.item {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+*/
 
 .dx-draggable-source {
   opacity: 0.5;
