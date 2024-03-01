@@ -64,16 +64,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*
 #scroll,
 #list {
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 240px;
 }
 
+/*
 .item {
   box-sizing: border-box;
   padding: 10px 20px;
